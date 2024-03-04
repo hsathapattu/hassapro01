@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for cover page */
+    body {
+      background-color: #f8f9fa;
+    }
+    .cover-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .cover-heading {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .lead {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cover-container text-center">
+  <h1 class="cover-heading">Welcome to My Website</h1>
+  <p class="lead">Explore our content and services.</p>
+  <button class="btn btn-lg btn-primary" id="getStartedButton">Get Started</button>
+</div>
+
+<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+  <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+          id="bd-theme"
+          type="button"
+          aria-expanded="false"
+          data-toggle="dropdown"
+          aria-label="Toggle theme (auto)">
+    <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+    <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center" data-theme-value="light" aria-pressed="false">
+        <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+        Light
+        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center" data-theme-value="dark" aria-pressed="false">
+        <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+        Dark
+        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item d-flex align-items-center active" data-theme-value="auto" aria-pressed="true">
+        <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        Auto
+        <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<script>
+  // Simple JavaScript snippet for button click
+  document.getElementById('getStartedButton').addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
+  // JavaScript for theme toggle
+  document.querySelectorAll('[data-theme-value]').forEach(function(elem) {
+    elem.addEventListener('click', function() {
+      const themeValue = this.getAttribute('data-theme-value');
+      document.documentElement.setAttribute('data-bs-theme', themeValue);
+      localStorage.setItem('bs-theme', themeValue);
+    });
+  });
+
+  const currentTheme = localStorage.getItem('bs-theme');
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-bs-theme', currentTheme);
+  }
+</script>
+
+</body>
+</html>
