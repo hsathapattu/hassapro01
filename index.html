@@ -10,16 +10,48 @@
     .top-bar {
       background-color: #000;
       color: #fff;
-      padding: 10px 0;
+      padding: 10px 15px;
+    }
+    .top-bar p {
+      margin: 0;
+      display: inline-block;
+      margin-right: 20px; /* Adjust as needed */
     }
     .top-bar i {
       margin-right: 5px;
+    }
+    .hero-section {
+      padding: 50px 0;
+    }
+    .hero-content {
+      margin-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+      .hero-content {
+        margin-bottom: 0;
+        padding-right: 50px;
+      }
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+    @media (max-width: 767.98px) {
+      .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-content {
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar text-center">
+  <div class="top-bar">
     <p><i class="fas fa-phone"></i>123-456-7890</p>
     <p><i class="fas fa-map-marker-alt"></i>1234 Street Name, City</p>
   </div>
@@ -51,6 +83,18 @@
       </div>
     </div>
   </nav>
+
+  <div class="container hero-section">
+    <div class="row align-items-center">
+      <div class="col-lg-6 hero-content">
+        <h2>Sample Paragraph About Filming</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, lorem eget commodo condimentum, mauris mi lacinia metus, nec ullamcorper libero sapien nec felis.</p>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://via.placeholder.com/500" alt="Hero Image" class="hero-image">
+      </div>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
