@@ -36,6 +36,10 @@
       width: 100%;
       max-width: 400px;
       height: auto;
+      transition: transform 0.5s ease; /* Add transition for smooth animation */
+    }
+    .hero-image:hover {
+      transform: rotateY(180deg); /* Rotate the image when hovered */
     }
     @media (max-width: 767.98px) {
       .hero-section {
@@ -86,15 +90,51 @@
 
   <div class="container hero-section">
     <div class="row align-items-center">
-      <div class="col-lg-6 hero-content">
-        <h2>Sample Paragraph About Filming</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, lorem eget commodo condimentum, mauris mi lacinia metus, nec ullamcorper libero sapien nec felis.</p>
-      </div>
-      <div class="col-lg-6">
-        <img src="https://via.placeholder.com/500" alt="Hero Image" class="hero-image">
-      </div>
+        <div class="col-lg-6 hero-content">
+            <h2 id="typing-text">"Capture Your Love Story: Welcome to Our Wedding Photo Shoot Haven!</h2>
+            <p id="typing-paragraph">Embark on a journey of timeless romance and unforgettable memories with our expert wedding photography services. From the tender moments of getting ready to the joyous celebrations of your special day, our talented team is dedicated to preserving every smile, every tear, and every loving glance.</p>
+            <p>Discover the magic of our breathtaking locations, exquisite photography styles, and personalized packages tailored to your unique love story. Let us weave the narrative of your wedding day into a masterpiece that will be cherished for a lifetime.</br> Trust us to capture the essence of your love, one frame at a time. Welcome to a world where dreams are immortalized in pixels and where love shines brighter than ever before."</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="C:\Users\User\Desktop\img_4723.jpg" alt="Hero Image" class="hero-image">
+        </div>
     </div>
-  </div>
+</div>
+
+<script>
+    // Define the text content and typing speed
+    var textArray = [
+        "Capture Your Love Story: Welcome to Our Wedding Photo Shoot Haven!",
+        "Embark on a journey of timeless romance and unforgettable memories with our expert wedding photography services. From the tender moments of getting ready to the joyous celebrations of your special day, our talented team is dedicated to preserving every smile, every tear, and every loving glance.",
+        "Discover the magic of our breathtaking locations, exquisite photography styles, and personalized packages tailored to your unique love story. Let us weave the narrative of your wedding day into a masterpiece that will be cherished for a lifetime.",
+        "Trust us to capture the essence of your love, one frame at a time. Welcome to a world where dreams are immortalized in pixels and where love shines brighter than ever before."
+    ];
+    var typingSpeed = 70; // Speed in milliseconds between each character
+
+    // Function to simulate typing effect
+    function typeText(elementId, textArray, speed) {
+        var element = document.getElementById(elementId);
+        var index = 0;
+        var text = "";
+        var typing = setInterval(function () {
+            text += textArray[index][text.length];
+            element.innerHTML = text;
+            if (text === textArray[index]) {
+                clearInterval(typing);
+                index++;
+                if (index < textArray.length) {
+                    setTimeout(function () {
+                        typeText(elementId, textArray, speed);
+                    }, 50000); // Wait for 2 seconds before typing the next text
+                }
+            }
+        }, speed);
+    }
+
+    // Start typing animation
+    typeText("typing-text", textArray, typingSpeed);
+</script>
+
 
   <footer class="footer fixed-bottom bg-dark text-white text-center py-3">
     <div class="container">
